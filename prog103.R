@@ -67,12 +67,14 @@ if (extreme_type == "cold") {
                      kefj_season == season &
                      kefj_temperature <= -4 &
                      kefj_exposure == "air")
-} else {
+} else if (extreme_type == "hot") {
   is_extreme <- kefj_temperature >= 25
   n_extreme <- sum(kefj_site == site &
                      kefj_season == season &
                      kefj_temperature >= 25 &
                      kefj_exposure == "air")
+  } else {
+  return("HOT OR COLD")
 }
 
 
@@ -93,12 +95,14 @@ perdayhoursEXT <- function(ourSite, ourSeason, ourEXT) {
                        kefj_season == ourSeason &
                        kefj_temperature <= -4 &
                        kefj_exposure == "air")
-  } else {
+  } else if (ourEXT == "hot"){
 
     n_extreme <- sum(kefj_site == ourSite &
                        kefj_season == ourSeason &
                        kefj_temperature >= 25 &
                        kefj_exposure == "air")
+  } else {
+    return("COLD OR HOT")
   }
 
 

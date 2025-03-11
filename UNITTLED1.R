@@ -2,8 +2,8 @@ for (i in 4:8){
   print(i)
 }
 
-animal <- c("fish", "fox", "octopus", "horse")
-count <- c(1,2,3,4)
+animal <- c("fish", "octopus", "fish", "fish", "octopus")
+count <- c(1,2,3,4,5)
 
 for (a in animal) {
   print(a)
@@ -24,3 +24,5 @@ for (i in 1:length(animal)) {
   }
 }
 total_mass
+animal
+count
