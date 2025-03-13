@@ -62,21 +62,20 @@ site <- "Nuka_Pass"
 season <- "Late winter"
 extreme_type <- "cold"
 if (extreme_type == "cold") {
-
+  is_extreme <- kefj_temperature <= 4
   n_extreme <- sum(kefj_site == site &
                      kefj_season == season &
-                     kefj_temperature <= -4 &
+                     is_extreme &
                      kefj_exposure == "air")
 } else if (extreme_type == "hot") {
   is_extreme <- kefj_temperature >= 25
   n_extreme <- sum(kefj_site == site &
                      kefj_season == season &
-                     kefj_temperature >= 25 &
+                     is_extreme &
                      kefj_exposure == "air")
   } else {
   return("HOT OR COLD")
 }
-
 
 n_total <- sum(kefj_site == site &
                  kefj_season == season)
@@ -113,7 +112,7 @@ perdayhoursEXT <- function(ourSite, ourSeason, ourEXT) {
   hours_extreme_per_day <- hours_extreme / days_total
   return(hours_extreme_per_day)
 }
-perdayhoursEXT("Nuka_Pass", "Summer", "hot")
+perdayhoursEXT("Nuka_Pass", "Late Winter", "cold")
 
 # Season to taste ---------------------------------------------------------
 
